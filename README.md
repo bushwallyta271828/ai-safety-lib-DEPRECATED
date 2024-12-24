@@ -1,0 +1,1 @@
+I have no idea how to manage a project like this. [Here's](https://docs.google.com/spreadsheets/d/1vrTgTDHCtLkmovA93vDOiS0uyBnXXW4zY6GRteaJy_I) a Google Sheet planning document. I think that should work for now. Feel free to yell at me if I'm doing this wrong.
