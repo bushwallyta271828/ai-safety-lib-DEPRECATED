@@ -1,3 +1,4 @@
--- This module serves as the root of the `AiSafetyLib` library.
--- Import modules here that should be built as part of the library.
-import «AiSafetyLib».Basic
+import AiSafetyLib.Basic
+import AiSafetyLib.ComplexityTheory.Basic
+import AiSafetyLib.GameTheory.Basic
+import AiSafetyLib.GraphicalModels.Basic
