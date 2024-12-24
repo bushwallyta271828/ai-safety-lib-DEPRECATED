@@ -1,2 +1,2 @@
-def hello := "world"
+def graphicalmodel := "world"
 
