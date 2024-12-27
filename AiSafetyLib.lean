@@ -1,4 +1,5 @@
 import AiSafetyLib.Basic
 import AiSafetyLib.ComputationalComplexity.Basic
 import AiSafetyLib.GameTheory.Basic
+import AiSafetyLib.GameTheory.DecisionTheory.Basic
 import AiSafetyLib.GraphicalModels.Basic
