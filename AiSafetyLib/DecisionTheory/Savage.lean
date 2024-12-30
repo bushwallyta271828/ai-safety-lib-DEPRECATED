@@ -42,3 +42,13 @@ def constantComparison {States Consequences : Type}
   : Prop :=
     ∀ x y : Consequences, ∀ event : Set States, ¬(null notBetterThan event) →
       notBetterThan (fun _ => x) (fun _ => y) ↔ (conditionalNotBetterThan notBetterThan event) (fun _ => x) (fun _ => y)
+
+def constantEventComparison {States Consequences : Type}
+  [Nonempty States] [Nonempty Consequences]
+  (notBetterThan : (States → Consequences) → (States → Consequences) → Prop)
+  : Prop :=
+    ∀ A B : Set States, ∀ v w x y : Consequences,
+      ¬(notBetterThan (fun _ => v) (fun _ => w))
+      → ¬(notBetterThan (fun _ => x) (fun _ => y))
+      → (notBetterThan (fun s => if s ∈ B then v else w) (fun s => if s ∈ A then v else w))
+      → (notBetterThan (fun s => if s ∈ B then x else y) (fun s => if s ∈ A then x else y))
