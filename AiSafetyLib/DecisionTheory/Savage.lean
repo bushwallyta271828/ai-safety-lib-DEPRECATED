@@ -24,7 +24,7 @@ def sureThingPrinciple {States Consequences : Type}
   [Nonempty States] [Nonempty Consequences]
   (notBetterThan : (States → Consequences) → (States → Consequences) → Prop)
   : Prop :=
-    ∀ event : Set States, ∀ f f' g : States → Consequences,
-      notBetterThan (event.piecewise f g) (event.piecewise f' g) →
-        ∀ g' : States → Consequences, notBetterThan (event.piecewise f g') (event.piecewise f' g')
+    ∀ event : Set States, ∀ f g h : States → Consequences,
+      notBetterThan (event.piecewise f h) (event.piecewise g h) →
+        (conditionalNotBetterThan notBetterThan event) f g
 
