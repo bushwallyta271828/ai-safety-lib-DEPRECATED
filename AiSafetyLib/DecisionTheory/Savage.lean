@@ -52,3 +52,9 @@ def constantEventComparison {States Consequences : Type}
       → ¬(notBetterThan (fun _ => x) (fun _ => y))
       → (notBetterThan (fun s => if s ∈ B then v else w) (fun s => if s ∈ A then v else w))
       → (notBetterThan (fun s => if s ∈ B then x else y) (fun s => if s ∈ A then x else y))
+
+def opinionated {States Consequences : Type}
+  [Nonempty States] [Nonempty Consequences]
+  (notBetterThan : (States → Consequences) → (States → Consequences) → Prop)
+  : Prop :=
+    ∃ x y : Consequences, ¬(notBetterThan (fun _ => x) (fun _ => y))
