@@ -36,3 +36,9 @@ def null {States Consequences : Type}
     ∀ f g : States → Consequences,
       (conditionalNotBetterThan notBetterThan event) f g
 
+def constantComparison {States Consequences : Type}
+  [Nonempty States] [Nonempty Consequences]
+  (notBetterThan : (States → Consequences) → (States → Consequences) → Prop)
+  : Prop :=
+    ∀ x y : Consequences, ∀ event : Set States, ¬(null notBetterThan event) →
+      notBetterThan (fun _ => x) (fun _ => y) ↔ (conditionalNotBetterThan notBetterThan event) (fun _ => x) (fun _ => y)
