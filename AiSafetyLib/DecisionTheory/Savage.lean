@@ -1,5 +1,8 @@
 import Mathlib
 set_option autoImplicit false
+set_option diagnostics true
+
+open Classical
 
 def completeTransitive {States Consequences : Type}
   [Nonempty States] [Nonempty Consequences]
@@ -11,4 +14,7 @@ def completeTransitive {States Consequences : Type}
 def sureThingPrinciple {States Consequences : Type}
   [Nonempty States] [Nonempty Consequences]
   (notBetterThan : (States → Consequences) → (States → Consequences) → Prop)
-  : Prop := sorry
+  : Prop :=
+    ∀ event : Set States, ∀ f f' g : States → Consequences,
+      notBetterThan (fun s : States => if s ∈ event then f s else g s) (fun s : States => if s ∈ event then f' s else g s) →
+        ∀ g' : States → Consequences, notBetterThan (fun s : States => if s ∈ event then f s else g' s) (fun s : States => if s ∈ event then f' s else g' s)
